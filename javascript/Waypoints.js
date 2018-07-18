@@ -170,7 +170,7 @@ waypoints_save = function() {
 
 // killthreads()
 waypoints_test = function() {
-	if (typeof pf != "undefined") {
+	if (typeof pf == "undefined") {
 		console.log("please call load_pathfinder() first")
 		return;
 	}
