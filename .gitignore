@@ -1,0 +1,11 @@
+base/models
+base/scripts
+base/shaders
+base/textures
+base/maps
+*.pk3
+*.pdb
+*.ilk
+*.dll
+*.exe
+*.cfg

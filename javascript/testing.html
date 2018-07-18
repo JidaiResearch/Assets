@@ -1,0 +1,46 @@
+
+
+<script src="Astar.js"></script>
+<script src="Heap.js"></script>
+
+<script>
+
+	
+	function Node(name, x, y) {
+		this.name = name;
+		this.x = x
+		this.y = y
+		this.distance = function (to) {
+			var dx = to.x - this.x
+			var dy = to.y - this.y
+			var dist =  Math.sqrt(dx*dx + dy*dy)
+			//var dist =  dx + dy
+			//console.log(this.neighbors[to])
+			console.log("distance from '" + this.name + "' to '" + to.name + "' is: " + dist);
+			return dist
+		};
+		
+		this.neighbors = {};
+	}
+	
+	op     = new Node(    "op",  414, 344)
+	is     = new Node(    "is",  616, 352)
+	a      = new Node(     "a",  805, 353)
+	faggot = new Node("faggot", 1085, 225)
+	wizard = new Node("wizard", 1108, 486)
+	point  = new Node(     ".", 1460, 330)
+	op.neighbors.to_is = is
+	is.neighbors.to_a = a
+	a.neighbors.to_faggot = faggot
+	a.neighbors.to_wizard = wizard
+	faggot.neighbors.to_point = point
+	wizard.neighbors.to_point = point
+	
+	
+	path = new Astar().findPath(op, point)
+	var tmp = []
+	for (i=0; i<path.length; i++) {
+		//tmp.push()
+		console.log(path[i].name)
+	}
+</script>

@@ -1,0 +1,42 @@
+
+spawnClone = function() {
+	tmp = spawnentity()
+	tmp.model = "models/map_objects/pbr_test/pbr_test2.MD3"
+	tmp.origin = player.origin + Vec3(0,0,-40)
+	return tmp
+}
+
+spawnZF = function() {
+	tmp = spawnentity()
+	tmp.model = "models/players/jedi_zf/model.glm"
+	tmp.origin = player.origin + Vec3(0,0,-40)
+	return tmp
+}
+
+spawnImp = function() {
+	tmp = spawnentity()
+	tmp.model = "models/players/imperial/model.glm"
+	tmp.origin = player.origin + Vec3(0,0,0)
+	return tmp
+}
+
+spawnChiss = function() {
+	tmp = spawnentity()
+	tmp.model = "models/players/chiss/model.glm"
+	tmp.origin = player.origin + Vec3(0,0,0)
+	return tmp
+}
+
+spawnSaber = function() {
+	tmp = spawnentity()
+	tmp.model = "models/weapons2/saber_6/saber_6.glm"
+	tmp.origin = player.origin + Vec3(0,0,-40)
+	return tmp
+}
+
+spawnPlayer = function(name) {
+	tmp = spawnentity()
+	tmp.model = "models/players/" + name + "/model.glm"
+	tmp.origin = player.origin + Vec3(0,0,0)
+	return tmp
+}
