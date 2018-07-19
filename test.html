@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<style>
+		body {
+			background-color: black;
+		}
+	</style>
+	<script>
+		get_global = function() {
+			return window;
+		}
+	</script>
+    <script type="text/javascript" src="javascript/Acorn.js"></script>
+    <script type="text/javascript" src="javascript/JidaiScript.js"></script>
+    <script type="text/javascript" src="javascript/Vec3.js"></script>
+    <script type="text/javascript" src="javascript/Number.js"></script>
+    <script type="text/javascript" src="javascript/String.js"></script>
+    <script type="text/jidaiscript" id="testcode">
+		function Player() {
+			this.origin = Vec3(1000,2000,3000)
+		}
+		player = new Player()
+		one = 1;
+		ten = 10;
+		eleven = one + ten;
+		minusEleven = -eleven;
+		plusEleven = +eleven;
+		tenEqualsTen = ten == ten;
+		tenNotEqualsTen = ten != ten;
+		a = Vec3(10,20,30);
+		b = Vec3(100,200,300);
+		d = Vec3(1,2,3);
+		dMul2 = d * 2
+		dMul2 *= 3
+		c = a + b;
+		c += d;
+		e = a + (b + c)
+		player.origin += c
+		console.log(c)
+		console.log("eleven:", eleven, "minusEleven:", minusEleven, "plusEleven", plusEleven)
+		console.log("tenEqualsTen", tenEqualsTen, "tenNotEqualsTen", tenNotEqualsTen)
+		hello = "hello"
+		hello += " you"
+		console.log("hello you: ", hello);
+    </script>
+	<script>
+		acorn = new Acorn();
+		jidaiScript = new JidaiScript()
+		testcode = document.getElementById("testcode").innerHTML
+		jidaiScript.eval(testcode);
+		console.log("this.last_generated_js: ", jidaiScript.last_generated_js);
+	</script>
+</head>
+<body>
+</body>
+</html>
