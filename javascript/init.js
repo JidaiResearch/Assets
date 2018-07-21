@@ -154,3 +154,15 @@ handle_input = function (code, global) {
 }
 
 print("init.js loaded :^)\n");
+
+frame = function() {
+	Com_BusyWait();
+	Com_Frame();
+}
+
+main = function() {
+	while (1) {
+		frame()
+	}
+}
+

@@ -193,6 +193,42 @@ waypoints_test = function() {
 	} )()
 }
 
+
+test_patrol = function() {
+	id_from = 0
+	id_to = 10
+	hf = spawnNPC("jedi_hf")
+	hf.thread( function() {
+		while (1) {
+			var path = pf.findPath_id_id(id_from, id_to)
+			for (var i=0; i<path.length; i++) {
+				var pos = path[i].origin
+				this.walkToSlow(pos)
+				do {
+					var dist = distance(this.origin, pos)
+					if (dist < 10)
+						break;
+					wait(0.05)
+				} while (1);
+			}
+			wait(1)
+			var path = pf.findPath_id_id(id_to, id_from)
+			for (var i=0; i<path.length; i++) {
+				var pos = path[i].origin
+				this.walkToSlow(pos)
+				do {
+					var dist = distance(this.origin, pos)
+					if (dist < 10)
+						break;
+					wait(0.05)
+				} while (1);
+			}
+			wait(0.05)
+		}
+	} )()	
+	
+}
+
 /*
 	path = new Astar().findPath(a, d)
 	var tmp = []

@@ -112,6 +112,15 @@ Entity.prototype.walkTo = function(to) {
 	this.walk()
 }
 
+Entity.prototype.walkToSlow = function(to) {
+	var unitsPerSecond = 20;
+	var dist = distance( this.origin, to )
+	var timeNeeded = dist / unitsPerSecond;
+	this.angles = vecToAngles(to.sub(this.origin))
+	this.moveTo(to, timeNeeded)
+	this.walk()
+}
+
 Entity.prototype.sit    = function(to) { this.animate(13547,  2) }
 Entity.prototype.crouch = function(to) { this.animate( 2949, 25) }
 Entity.prototype.walk   = function(to) { this.animate(20438, 26) }
